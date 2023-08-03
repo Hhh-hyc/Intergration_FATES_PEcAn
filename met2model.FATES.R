@@ -79,13 +79,13 @@ met2model.FATES <- function(in.path, in.prefix, outfolder, start_date, end_date,
         lon.dim  <- ncdim_def(name = "lon", units = "", vals = 1:1, create_dimvar = FALSE)
         time.dim <- ncdim_def(name = "time", units = "seconds", vals = time,
                               create_dimvar = TRUE, unlim = TRUE)#left to CTSM automatically transfer
-        scalar.dim <- ncdim_def(name='"scalar", units = "", vals = 1:1, creat_dimvar = FALSE)# dimensions in forcing data
+        scalar.dim <- ncdim_def(name='"scalar", units = "", vals = 1:1, creat_dimvar = FALSE) ## dimensions in forcing data
         dim      <- list(lat.dim, lon.dim, time.dim, scalar.dim)  ## Original question: docs say this should be time,lat,lon but get error writing unlimited first
         ## http://www.cesm.ucar.edu/models/cesm1.2/clm/models/lnd/clm/doc/UsersGuide/x12979.html
         
         # LATITUDE
         var <- ncdf4::ncvar_def(name = "LATIXY", units = "degree_north",
-                         dim = list(lat.dim, lon.dim), missval = as.numeric(-9999)) #2. dim consistent with .nc, missing value==NaNf?
+                         dim = list(lat.dim, lon.dim), missval = as.numeric(-9999)) ##2. dim consistent with .nc, missing value==NaNf?
         ncout <- ncdf4::nc_create(outfile, vars = var, verbose = verbose)
         ncvar_put(nc = ncout, varid = "LATIXY", vals = LATIXY) #same with FATES
 
@@ -95,7 +95,7 @@ met2model.FATES <- function(in.path, in.prefix, outfolder, start_date, end_date,
         ncout <- ncdf4::ncvar_add(nc = ncout, v = var, verbose = verbose)
         ncvar_put(nc = ncout, varid = "LONGXY", vals = LONGXY)
         
-        #time
+        #TIME
         ncout <- insert(ncout, "time", "days", time) #3. neceaasry?
 )
         # EDGEE
