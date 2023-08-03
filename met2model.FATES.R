@@ -79,7 +79,7 @@ met2model.FATES <- function(in.path, in.prefix, outfolder, start_date, end_date,
         lon.dim  <- ncdim_def(name = "lon", units = "", vals = 1:1, create_dimvar = FALSE)
         time.dim <- ncdim_def(name = "time", units = "seconds", vals = time,
                               create_dimvar = TRUE, unlim = TRUE)#left to CTSM automatically transfer
-        scalar.dim <- ncdim_def(name='"scalar", units = "", vals = 1:1, creat_dimvar = FALSE) ## dimensions in forcing data
+        scalar.dim <- ncdim_def(name="scalar", units = "", vals = 1:1, creat_dimvar = FALSE) ## dimensions in forcing data
         dim      <- list(lat.dim, lon.dim, time.dim, scalar.dim)  ## Original question: docs say this should be time,lat,lon but get error writing unlimited first
         ## http://www.cesm.ucar.edu/models/cesm1.2/clm/models/lnd/clm/doc/UsersGuide/x12979.html
         
