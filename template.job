@@ -32,7 +32,7 @@ echo "Res: @RES@ "
 echo "Compset: @COMPSET@ "
 echo "Machine: @MACHINE@ "
 echo "Compiler: @COMPILER@ "
-echo "Project_name: @PROJECT@ " ## delete?
+echo "Project_name: @PROJECT@ "
 echo "--------------------------"
 ./create_newcase --case @CASEDIR@ --res @RES@ --compset @COMPSET@ --mach @MACHINE@ --compiler @COMPILER@ --project @PROJECT@ --driver nuopc --run-unsupported
   
